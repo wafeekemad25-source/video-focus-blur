@@ -3,23 +3,42 @@
 <head>
 <meta charset="utf-8">
 <style>
-  body { width: 260px; margin: 0; padding: 16px; font: 14px system-ui, sans-serif; background: #111; color: #eee; }
-  h1 { font-size: 15px; margin: 0 0 14px; }
+  body { width: 270px; margin: 0; padding: 16px; font: 14px system-ui, sans-serif; background: #111; color: #eee; }
+  header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  header img { width: 28px; height: 28px; }
+  h1 { font-size: 15px; margin: 0; flex: 1; }
+  .ver { color: #666; font-size: 11px; }
   label { display: flex; justify-content: space-between; align-items: center; margin: 12px 0 4px; }
   input[type=range] { width: 100%; accent-color: #22d3ee; }
   select { width: 100%; padding: 6px; background: #222; color: #eee; border: 1px solid #333; border-radius: 6px; }
-  .hint { color: #888; font-size: 12px; margin-top: 14px; }
   input[type=checkbox] { width: 18px; height: 18px; accent-color: #22d3ee; }
+  .site { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 8px; padding: 2px 10px 8px; margin-top: 4px; }
+  .site small { color: #888; direction: ltr; display: block; text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .hint { color: #888; font-size: 12px; margin-top: 14px; }
 </style>
 </head>
 <body>
-  <h1>Video Focus Blur</h1>
+  <header>
+    <img src="icons/icon48.png" alt="">
+    <h1>Video Focus Blur</h1>
+    <span class="ver" id="ver"></span>
+  </header>
   <label>شغّال <input type="checkbox" id="enabled"></label>
+  <div class="site" id="siteBox" hidden>
+    <label>شغّال على الموقع ده <input type="checkbox" id="site"></label>
+    <small id="siteName"></small>
+  </div>
   <label for="mode">إمتى يعمل بلر</label>
   <select id="mode">
-    <option value="hover">لما أقف بالماوس على فيديو شغال</option>
+    <option value="hover">لما أقف بالماوس على فيديو أو صورة</option>
     <option value="playing">طول ما فيه فيديو شغال بصوت</option>
   </select>
+  <div id="hoverOpts">
+    <label>صور GIF <input type="checkbox" id="gifs"></label>
+    <label>الصور العادية (ديزاين، لاي أوت…) <input type="checkbox" id="images"></label>
+    <label>استنى على الصورة قبل البلر <span id="delayV"></span></label>
+    <input type="range" id="imageDelay" min="0" max="1500" step="100">
+  </div>
   <label>قوة البلر <span id="blurV"></span></label>
   <input type="range" id="blur" min="2" max="40">
   <label>تغميق الخلفية <span id="dimV"></span></label>
