@@ -1,0 +1,30 @@
+<!doctype html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8">
+<style>
+  body { width: 260px; margin: 0; padding: 16px; font: 14px system-ui, sans-serif; background: #111; color: #eee; }
+  h1 { font-size: 15px; margin: 0 0 14px; }
+  label { display: flex; justify-content: space-between; align-items: center; margin: 12px 0 4px; }
+  input[type=range] { width: 100%; accent-color: #22d3ee; }
+  select { width: 100%; padding: 6px; background: #222; color: #eee; border: 1px solid #333; border-radius: 6px; }
+  .hint { color: #888; font-size: 12px; margin-top: 14px; }
+  input[type=checkbox] { width: 18px; height: 18px; accent-color: #22d3ee; }
+</style>
+</head>
+<body>
+  <h1>Video Focus Blur</h1>
+  <label>شغّال <input type="checkbox" id="enabled"></label>
+  <label for="mode">إمتى يعمل بلر</label>
+  <select id="mode">
+    <option value="hover">لما أقف بالماوس على فيديو شغال</option>
+    <option value="playing">طول ما فيه فيديو شغال بصوت</option>
+  </select>
+  <label>قوة البلر <span id="blurV"></span></label>
+  <input type="range" id="blur" min="2" max="40">
+  <label>تغميق الخلفية <span id="dimV"></span></label>
+  <input type="range" id="dim" min="0" max="85">
+  <div class="hint">اختصار: Alt + B يقفل/يفتح</div>
+  <script src="popup.js"></script>
+</body>
+</html>
